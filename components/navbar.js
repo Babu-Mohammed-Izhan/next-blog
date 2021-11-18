@@ -8,40 +8,20 @@ const Navbar = () => {
       {({ open }) => (
         <>
           <div className="flex items-center px-4 justify-between h-20">
-            <div className="text-white rounded-full bg-gradient-to-tr from-purple-600 to-purple-400 font-bold text-2xl h-12 w-12 flex items-center justify-center">
-              Iz
-            </div>
+            <Link href="/">
+              <div className="text-white rounded-full bg-black font-bold text-2xl h-12 w-12 flex items-center justify-center cursor-pointer">
+                <a>Iz</a>
+              </div>
+            </Link>
             <div className="links px-4 hidden md:inline">
               <Link href="/">
-                <a className="px-3 text-purple-500 hover:text-purple-900">
-                  Homepage
-                </a>
-              </Link>
-              <Link href="/blog">
-                <a className="px-3 text-purple-500 hover:text-purple-900">
-                  Blog
-                </a>
+                <a className="px-3  hover:underline font-semibold">Homepage</a>
               </Link>
               <Link href="/about">
-                <a className="px-3 text-purple-500 hover:text-purple-900">
-                  About
-                </a>
+                <a className="px-3  hover:underline font-semibold">About</a>
               </Link>
               <Link href="/contact">
-                <a className="px-3 text-purple-500 hover:text-purple-900">
-                  Contact
-                </a>
-              </Link>
-
-              <Link href="/login" passHref>
-                <button className="rounded-full  py-2 px-4 ml-6 mr-2 font-bold text-purple-500 hover:bg-purple-600 hover:text-white ">
-                  Login
-                </button>
-              </Link>
-              <Link href="/signup" passHref>
-                <button className=" text-white bg-purple-600 hover:bg-purple-50 hover:text-purple-500 rounded-full  py-2 px-4 font-bold">
-                  Signup
-                </button>
+                <a className="px-3  hover:underline font-semibold">Contact</a>
               </Link>
             </div>
             <div className="md:hidden">
@@ -67,35 +47,17 @@ const Navbar = () => {
             <Disclosure.Panel className="sm:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col">
                 <Link href="/">
-                  <a className="px-3 text-purple-500 hover:text-purple-900">
+                  <a className="px-3   hover:underline font-semibold">
                     Homepage
                   </a>
                 </Link>
-                <Link href="/blog">
-                  <a className="px-3 text-purple-500 hover:text-purple-900">
-                    Blog
-                  </a>
-                </Link>
                 <Link href="/about">
-                  <a className="px-3 text-purple-500 hover:text-purple-900">
-                    About
-                  </a>
+                  <a className="px-3   hover:underline font-semibold">About</a>
                 </Link>
                 <Link href="/contact">
-                  <a className="px-3 text-purple-500 hover:text-purple-900">
+                  <a className="px-3   hover:underline font-semibold">
                     Contact
                   </a>
-                </Link>
-
-                <Link href="/login" passHref>
-                  <button className="rounded-full py-2 font-bold text-purple-500 hover:bg-purple-600 hover:text-white ">
-                    Login
-                  </button>
-                </Link>
-                <Link href="/signup" passHref>
-                  <button className=" text-white bg-purple-600 hover:bg-purple-50 hover:text-purple-500 rounded-full  py-2 px-4 font-bold">
-                    Signup
-                  </button>
                 </Link>
               </div>
             </Disclosure.Panel>
