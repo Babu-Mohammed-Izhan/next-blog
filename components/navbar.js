@@ -44,7 +44,7 @@ const Navbar = () => {
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
-            <Disclosure.Panel className="sm:hidden">
+            <Disclosure.Panel className="md:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col">
                 <Link href="/">
                   <a className="px-3   hover:underline font-semibold">
