@@ -7,12 +7,12 @@ import Layout from "../components/layout";
 import { indexQuery } from "../lib/queries";
 import { getClient, overlayDrafts } from "../lib/sanity.server";
 
-export default function Index({ allPosts, preview }) {
+export default function Index({ allPosts }) {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
   return (
     <>
-      <Layout preview={preview}>
+      <Layout>
         <Head>
           <title>Next.js Blog</title>
         </Head>
@@ -35,9 +35,9 @@ export default function Index({ allPosts, preview }) {
   );
 }
 
-export async function getStaticProps({ preview = false }) {
-  const allPosts = overlayDrafts(await getClient(preview).fetch(indexQuery));
+export async function getStaticProps() {
+  const allPosts = overlayDrafts(await getClient().fetch(indexQuery));
   return {
-    props: { allPosts, preview },
+    props: { allPosts },
   };
 }

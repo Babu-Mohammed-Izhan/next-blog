@@ -8,7 +8,6 @@ import PostHeader from "../../components/post-header";
 import SectionSeparator from "../../components/section-separator";
 import Layout from "../../components/layout";
 import PostTitle from "../../components/post-title";
-import { CMS_NAME } from "../../lib/constants";
 import { postQuery, postSlugsQuery } from "../../lib/queries";
 import { urlForImage, usePreviewSubscription } from "../../lib/sanity";
 import {
@@ -17,7 +16,7 @@ import {
   overlayDrafts,
 } from "../../lib/sanity.server";
 
-export default function Post({ data = {}, preview }) {
+export default function Post({ data = {} }) {
   const router = useRouter();
 
   const slug = data?.post?.slug;
@@ -26,7 +25,7 @@ export default function Post({ data = {}, preview }) {
   } = usePreviewSubscription(postQuery, {
     params: { slug },
     initialData: data,
-    enabled: preview && slug,
+    enabled: slug,
   });
 
   if (!router.isFallback && !slug) {
@@ -34,7 +33,7 @@ export default function Post({ data = {}, preview }) {
   }
 
   return (
-    <Layout preview={preview}>
+    <Layout>
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
@@ -42,9 +41,7 @@ export default function Post({ data = {}, preview }) {
           <>
             <article>
               <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
+                <title>{post.title}</title>
                 {post.coverImage && (
                   <meta
                     key="ogImage"
@@ -74,14 +71,13 @@ export default function Post({ data = {}, preview }) {
   );
 }
 
-export async function getStaticProps({ params, preview = false }) {
-  const { post, morePosts } = await getClient(preview).fetch(postQuery, {
+export async function getStaticProps({ params }) {
+  const { post, morePosts } = await getClient().fetch(postQuery, {
     slug: params.slug,
   });
 
   return {
     props: {
-      preview,
       data: {
         post,
         morePosts: overlayDrafts(morePosts),

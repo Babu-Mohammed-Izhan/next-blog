@@ -6,7 +6,7 @@ const Contact = () => {
     <>
       <Navbar />
       <Container>
-        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8 ">
+        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8 pt-16 ">
           Contact
         </h1>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tighter leading-tight md:pr-8 py-4 ">
